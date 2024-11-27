@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import CartItem from './cartItem';
 import { toggleStatusTab, clearCart  } from '../stores/cart';
 import { products } from '../products';
+import { Link } from 'react-router-dom';
 
 const CartTab = () => {
     const carts = useSelector(store => store.cart.items);
@@ -43,7 +44,16 @@ const CartTab = () => {
     transform transition-transform duration-500
     ${statusTab === false ? "translate-x-full" : ""}
     `}>
-        <h2 className='p-5 text-white text-2xl'>Shopping Cart</h2>
+        {/* <div>
+        <Link to="/" className='text-xl font-semibold'>.Home.</Link>
+        <h2 className='p-2 text-white text-2xl'>Shopping Cart</h2>
+        </div> */}
+        <div className="flex items-center justify-between bg-gray-800 p-4 rounded-md">
+            <Link to="/" className="text-xl font-semibold text-blue-400 hover:text-blue-300 transition">
+                .Home.
+            </Link>
+            <h2 className="text-white text-2xl font-bold">Shopping Cart</h2>
+        </div>
 
         {/* <div className='p-5'>
             {carts.map((item, key) => 
