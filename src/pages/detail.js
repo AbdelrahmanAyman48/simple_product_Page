@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../stores/cart';
 import ProductCart from '../components/productCart';
 
+
 const Detail = () => {
     const { slug } = useParams();
     const [detail, setDetail] = useState([]);
