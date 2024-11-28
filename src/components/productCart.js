@@ -45,11 +45,10 @@ const ProductCart = ({ data, loading }) => {
 
   
     return (
-    <div className='bg-white p-2 rounded-xl shadow-sm'>
-        <div className='relative'>
-            
+    <div className='bg-white  p-2 rounded-xl shadow-sm md:p-4 lg:p-6 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
+        <div className='relative w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
             <Link to={`/${slug}`}>
-            <img src={image} alt='' className='w-full h-auto drop-shadow-[0_80px_30px_#0007]' />
+            <img src={image} alt='' className='w-full drop-shadow-[0_80px_30px_#0007] object-cov rounded-lg  ' />
             </Link>
             <span className={`absolute top-3 right-0 py-1 px-3 text-xs rounded-full ${stockStatus === "In Stock" ? "bg-green-500 text-white" : "bg-red-500 text-white"}`}>
             {stockStatus}
@@ -57,7 +56,7 @@ const ProductCart = ({ data, loading }) => {
 
              {/* Quick View Button */}
              <button
-                    className="absolute top-3 left-0 py-1 px-2 text-xs bg-blue-500 text-white rounded-full"
+                    className="absolute top-3 left-0 py-1 px-2 text-xs bg-blue-500 text-white rounded-full hover:bg-blue-600"
                     onClick={handleQuickViewClick}
                 >
                     View
@@ -65,14 +64,14 @@ const ProductCart = ({ data, loading }) => {
             
         </div>
 
-        <h3 className='text-base py-3 text-center font-medium'>{name}</h3>
+        <h3 className='text-base py-3 text-center font-medium lg:text-lg xl:text-xl"'>{name}</h3>
 
-        <div className='flex justify-between items-center'>
-            <p>
-                $<span className='text-2xl font-medium'>{price}</span>
+        <div className='flex justify-between items-center gap-2 sm:gap-4 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
+            <p className="text-sm md:text-base">
+                $<span className='text-xl font-medium lg:text-2xl'>{price}</span>
             </p>
-            <button className='bg-gray-300 p-2 rounded-md text-sm hover:bg-gray-400 flex gap-2' onClick={handleAddToCart}>
-                <img src={iconCart} alt="" className='w-5'/>
+            <button className='bg-gray-300 p-2 rounded-md text-sm hover:bg-gray-400 flex gap-2 items-center md:text-base' onClick={handleAddToCart}>
+                <img src={iconCart} alt="" className='w-5 md:w-6'/>
                 Add
             </button>
         </div>
