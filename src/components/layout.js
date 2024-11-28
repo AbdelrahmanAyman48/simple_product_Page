@@ -3,26 +3,32 @@ import { Outlet } from 'react-router-dom';
 import Header from './header';
 import CartTab from './cartTab';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 const Layout = () => {
   const statusTabCart = useSelector((store) => store.cart.statusTab);
+    return (
+        <div className="bg-zinc-200 w-[900px]">
+            <main
+                className={twMerge(
+                    clsx(
+                        'w-[900px] max-w-full m-auto p-5 transform transition-transform duration-500',
+                        {
+                            '-translate-x-56': statusTabCart
+                        }
+                    )
+                )}
+            >
+                <Header />
+                <Outlet />
+            </main>
+            <CartTab />
+        </div>
+    );
+}
 
-  return (
-    <div className="bg-zinc-200 min-h-screen">
-      {/* Main content */}
-      <main
-        className={`max-w-[900px] w-full m-auto p-5 transform transition-transform duration-500 
-        ${statusTabCart === false ? '' : '-translate-x-56'} 
-        sm:px-3 md:px-4 lg:px-5`}
-      >
-        <Header />
-        <Outlet />
-      </main>
+export default Layout
 
-      {/* Cart Tab */}
-      <CartTab />
-    </div>
-  );
-};
-
-export default Layout;
+// const Layout = () => {
+//     const statusTabCart = useSelector(store => store.cart.statusTab);
