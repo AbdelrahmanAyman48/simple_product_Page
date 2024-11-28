@@ -1,94 +1,102 @@
-import React, { useState } from 'react' 
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import iconCart from '../assets/images/iconCart.png'
+import iconCart from '../assets/images/iconCart.png';
 import Skeleton from 'react-loading-skeleton';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../stores/cart';
 import QuickViewModal from './quickViewModal'; // Import the QuickViewModal
 
 const ProductCart = ({ data, loading }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
 
-    const carts = useSelector(store => store.cart.items);
+  const carts = useSelector((store) => store.cart.items);
 
-    const {id, name, price, image, slug, stockStatus, description } = data || {};
+  const { id, name, price, image, slug, stockStatus, description } = data || {};
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    
-    const handleAddToCart = () => {
-        dispatch(addToCart({
-            productId: id,
-            quantity: 1
-        }));
-    }
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        productId: id,
+        quantity: 1,
+      })
+    );
+  };
 
-    const handleQuickViewClick = () => {
-        setIsModalOpen(true); // Open modal
-    };
+  const handleQuickViewClick = () => {
+    setIsModalOpen(true); // Open modal
+  };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false); // Close modal
-    };
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close modal
+  };
 
-    if (loading) {
-        return (
-            <div className="bg-white p-5 rounded-xl shadow-sm">
-                <Skeleton height={320} />
-                <Skeleton height={30} width="60%" className="mt-3" />
-                <Skeleton height={20} width="40%" className="mt-1" />
-                <Skeleton height={40} width="80%" className="mt-3" />
-            </div>
-        );
-    }
-
-
-  
+  if (loading) {
     return (
-    <div className='bg-white  p-2 rounded-xl shadow-sm md:p-4 lg:p-6 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
-        <div className='relative w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
-            <Link to={`/${slug}`}>
-            <img src={image} alt='' className='w-full drop-shadow-[0_80px_30px_#0007] object-cov rounded-lg  ' />
-            </Link>
-            <span className={`absolute top-3 right-0 py-1 px-3 text-xs rounded-full ${stockStatus === "In Stock" ? "bg-green-500 text-white" : "bg-red-500 text-white"}`}>
-            {stockStatus}
-            </span>
+      <div className="bg-white p-5 rounded-xl shadow-sm">
+        <Skeleton height={320} />
+        <Skeleton height={30} width="60%" className="mt-3" />
+        <Skeleton height={20} width="40%" className="mt-1" />
+        <Skeleton height={40} width="80%" className="mt-3" />
+      </div>
+    );
+  }
 
-             {/* Quick View Button */}
-             <button
-                    className="absolute top-3 left-0 py-1 px-2 text-xs bg-blue-500 text-white rounded-full hover:bg-blue-600"
-                    onClick={handleQuickViewClick}
-                >
-                    View
-                </button>
-            
-        </div>
+  return (
+    <div className="bg-white  p-2 rounded-xl shadow-sm md:p-4 lg:p-6 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]">
+      <div className="relative w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]">
+        <Link to={`/${slug}`}>
+          <img
+            src={image}
+            alt=""
+            className="w-full drop-shadow-[0_80px_30px_#0007] object-cov rounded-lg  "
+          />
+        </Link>
+        <span
+          className={`absolute top-3 right-0 py-1 px-3 text-xs rounded-full ${stockStatus === 'In Stock' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}
+        >
+          {stockStatus}
+        </span>
 
-        <h3 className='text-base py-3 text-center font-medium lg:text-lg xl:text-xl"'>{name}</h3>
+        {/* Quick View Button */}
+        <button
+          className="absolute top-3 left-0 py-1 px-2 text-xs bg-blue-500 text-white rounded-full hover:bg-blue-600"
+          onClick={handleQuickViewClick}
+        >
+          View
+        </button>
+      </div>
 
-        <div className='flex justify-between items-center gap-2 sm:gap-4 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]'>
-            <p className="text-sm md:text-base">
-                $<span className='text-xl font-medium lg:text-2xl'>{price}</span>
-            </p>
-            <button className='bg-gray-300 p-2 rounded-md text-sm hover:bg-gray-400 flex gap-2 items-center md:text-base' onClick={handleAddToCart}>
-                <img src={iconCart} alt="" className='w-5 md:w-6'/>
-                Add
-            </button>
-        </div>
+      <h3 className='text-base py-3 text-center font-medium lg:text-lg xl:text-xl"'>
+        {name}
+      </h3>
 
-          {/* Quick View Modal */}
-        <QuickViewModal 
-                productDetails={{ name, price, image, description }} 
-                isOpen={isModalOpen} 
-                onClose={handleCloseModal} 
-                addCart={handleAddToCart}
-            />
+      <div className="flex justify-between items-center gap-2 sm:gap-4 w-full max-w-[300px] mx-auto sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]">
+        <p className="text-sm md:text-base">
+          $<span className="text-xl font-medium lg:text-2xl">{price}</span>
+        </p>
+        <button
+          className="bg-gray-300 p-2 rounded-md text-sm hover:bg-gray-400 flex gap-2 items-center md:text-base"
+          onClick={handleAddToCart}
+        >
+          <img src={iconCart} alt="" className="w-5 md:w-6" />
+          Add
+        </button>
+      </div>
+
+      {/* Quick View Modal */}
+      <QuickViewModal
+        productDetails={{ name, price, image, description }}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        addCart={handleAddToCart}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ProductCart
-
+export default ProductCart;
 
 // import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";

@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .container {
   margin: auto;
   /* padding: 0rem 8rem 7rem; */
@@ -10,9 +9,8 @@
   background-color: #f9fafb; /* Light gray background */
   min-height: 100vh; /* Full-screen height */
   max-width: 900px;
-  overflow:hidden;
+  overflow: hidden;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
