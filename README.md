@@ -1,7 +1,7 @@
 # Preview
-![Plan](Screenshot_11-2-2025_20400_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
-![UI](Screenshot_11-2-2025_203934_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
-![UI](Screenshot_11-2-2025_204017_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
+![Plan](img/Screenshot_11-2-2025_20400_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
+![UI](img/Screenshot_11-2-2025_203934_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
+![UI](img/Screenshot_11-2-2025_204017_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
 
 # Getting Started with Create React App
 
