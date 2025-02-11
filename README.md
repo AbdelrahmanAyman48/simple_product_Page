@@ -1,7 +1,14 @@
-# [Live Demo](https://simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app/)
+# E-Commerce Website 🙌
+
+The Product website is a built using React with Vite as the bundler. It incorporates Tailwind CSS for styling and Material UI for components, offering a sleek and modern user interface.
+
+  <img  src="img/Screenshot_11-2-2025_203934_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpegg" alt="Home">
+
+## [🌟Live Website🌟](https://e-commerce-template-tau.vercel.app/)
+# [🌟Live Demo🌟](https://simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app/)
 # Preview
 ![Plan](img/Screenshot_11-2-2025_20400_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
-![UI](img/Screenshot_11-2-2025_203934_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
+
 ![UI](img/Screenshot_11-2-2025_204017_simple-product-page-vt15-q7dsz5gb7-abs-projects-a0d3e74b.vercel.app.jpeg)
 
 # Getting Started with Create React App
